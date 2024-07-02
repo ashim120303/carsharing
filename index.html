@@ -15,7 +15,7 @@
             </a>
           <div class="header__right-block">
             <a href="#" class="header__link">О компании</a>
-            <a href="#" class="header__link">Условия</a>
+            <div id="auth-modal-btn" class="header__link">Войти</div>
             <div class="dropdown">
               <button class="dropdown__button">
                 <img src="img/header/ru.svg" alt="Russian, change language" />
@@ -27,6 +27,17 @@
           </div>
         </div>
       </header>
+
+      <div id="auth-modal" class="login-modal">
+        <div class="login-modal-content">
+          <span class="login-close">&times;</span>
+          <form class="login-form" action="">
+            <input class="login-input" type="text">
+            <input class="login-input" type="password">
+            <a class="login-btn" href="add.html">Войти</a>
+          </form>
+        </div>
+      </div>
       <main class="main">
         <section class="hero">
           <div class="hero__content">

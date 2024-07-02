@@ -16,6 +16,24 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
+// Auth modal
+document.addEventListener("DOMContentLoaded", function() {
+  var modal = document.getElementById("auth-modal");
+  var carModal = document.getElementById("auth-modal-btn");
+  var span = document.getElementsByClassName("close")[0];
+  carModal.onclick = function() {
+    modal.style.display = "block";
+  }
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+});
+
 
 // Anchor
 document.querySelector('.hero__anchor').addEventListener('click', function(event) {
