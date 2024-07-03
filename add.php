@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location: index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,8 +17,10 @@
 </head>
 
 <body>
+<form action="logout.php" method="POST">
+    <button class="logout" type="submit">Выйти</button>
+</form>
   <div class="wrapper">
-    <div class="wrapper">
       <form action="" method="post" class="form">
         <p class="form__text">Модель авто</p>
         <input type="text" class="form__input" name="model" required>

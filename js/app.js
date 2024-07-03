@@ -18,21 +18,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Auth modal
 document.addEventListener("DOMContentLoaded", function() {
-  var modal = document.getElementById("auth-modal");
-  var carModal = document.getElementById("auth-modal-btn");
-  var span = document.getElementsByClassName("close")[0];
-  carModal.onclick = function() {
-    modal.style.display = "block";
+  var authModal = document.getElementById("auth-modal");
+  var loginModal = document.getElementById("auth-modal-btn");
+  var close = document.getElementsByClassName("login-close")[0]; // Исправлено здесь
+  loginModal.onclick = function() {
+    authModal.style.display = "block";
   }
-  span.onclick = function() {
-    modal.style.display = "none";
+  close.onclick = function() {
+    authModal.style.display = "none";
   }
   window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
+    if (event.target == authModal) {
+      authModal.style.display = "none";
     }
   }
 });
+
 
 
 // Anchor

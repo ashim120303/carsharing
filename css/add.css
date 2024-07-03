@@ -56,6 +56,10 @@ input:focus{outline: none;}
   margin-top: 10px;
 }
 
+.logout{
+  margin: 20px 20px;
+}
+
 @media (max-width: 865px) {
   .form{
     margin: 24px;

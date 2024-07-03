@@ -28,16 +28,16 @@
         </div>
       </header>
 
-      <div id="auth-modal" class="login-modal">
-        <div class="login-modal-content">
-          <span class="login-close">&times;</span>
-          <form class="login-form" action="">
-            <input class="login-input" type="text">
-            <input class="login-input" type="password">
-            <a class="login-btn" href="add.html">Войти</a>
-          </form>
+        <div id="auth-modal" class="login-modal">
+            <div class="login-modal-content">
+                <span class="login-close">&times;</span>
+                <form class="login-form" action="auth.php" method="POST">
+                    <input class="login-input" type="text" name="username" placeholder="Username" required>
+                    <input class="login-input" type="password" name="password" placeholder="Password" required>
+                    <button class="login-btn" type="submit">Войти</button>
+                </form>
+            </div>
         </div>
-      </div>
       <main class="main">
         <section class="hero">
           <div class="hero__content">
