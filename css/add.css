@@ -60,3 +60,8 @@ input:focus {outline: none;}
   }
 }
 /* PREVIEW STYLES */
+.img-preview{
+  display: none;
+  width: 150px;
+  margin-bottom: 20px;
+}

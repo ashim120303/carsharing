@@ -130,9 +130,8 @@ if (!isset($_SESSION['username'])) {
         </div>
 
         <p class="form__text">Превью записи</p>
+        <img id="preview" class="img-preview">
         <input type="file" class="form__input" name="preview_image" id="photoInput" required>
-        <img id="preview" style="display: none;" class="img-pre">
-
 
         <p class="form__text">Изображения</p>
         <input type="file" class="form__input" name="images[]" id="images" multiple required>
@@ -143,6 +142,7 @@ if (!isset($_SESSION['username'])) {
 </div>
 
 <script>
+    // Preview
     document.getElementById('photoInput').onchange = function(event) {
         var reader = new FileReader();
         reader.onload = function() {

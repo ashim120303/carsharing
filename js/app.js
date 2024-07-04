@@ -42,14 +42,3 @@ document.querySelector('.hero__anchor').addEventListener('click', function(event
   document.getElementById('auto').scrollIntoView({ behavior: 'smooth' });
 });
 
-
-// Preview
-document.getElementById('photoInput').onchange = function(event) {
-  var reader = new FileReader();
-  reader.onload = function() {
-    var output = document.getElementById('preview');
-    output.src = reader.result;
-    output.style.display = 'block';
-  };
-  reader.readAsDataURL(event.target.files[0]);
-};
