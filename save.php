@@ -49,18 +49,20 @@ if (isset($_POST['add'])) {
             $car_id = $conn->insert_id;
 
             // Обработка дополнительных изображений
-            if (isset($_FILES['image_path'])) {
+            if (isset($_FILES['image_path']) && count($_FILES['image_path']['name']) > 0) {
                 $upload_dir = 'uploads/';
                 foreach ($_FILES['image_path']['tmp_name'] as $key => $tmp_name) {
-                    $image_name = uniqid('image_') . '_' . $_FILES['image_path']['name'][$key];
-                    $image_path = $upload_dir . $image_name;
-                    if (move_uploaded_file($_FILES['image_path']['tmp_name'][$key], $image_path)) {
-                        // Вставка пути изображения в таблицу `car_images`
-                        $insert_image_sql = "INSERT INTO car_images (car_id, image_path)
-                                            VALUES ($car_id, '$image_path')";
-                        $conn->query($insert_image_sql);
-                    } else {
-                        die("Ошибка при загрузке дополнительного изображения");
+                    if ($_FILES['image_path']['size'][$key] > 0) {
+                        $image_name = uniqid('image_') . '_' . $_FILES['image_path']['name'][$key];
+                        $image_path = $upload_dir . $image_name;
+                        if (move_uploaded_file($_FILES['image_path']['tmp_name'][$key], $image_path)) {
+                            // Вставка пути изображения в таблицу `car_images`
+                            $insert_image_sql = "INSERT INTO car_images (car_id, image_path)
+                                                VALUES ($car_id, '$image_path')";
+                            $conn->query($insert_image_sql);
+                        } else {
+                            die("Ошибка при загрузке дополнительного изображения");
+                        }
                     }
                 }
             }

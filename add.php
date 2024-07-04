@@ -23,7 +23,7 @@ if (!isset($_SESSION['username'])) {
     <button class="logout" type="submit">Выйти</button>
 </form>
 <div class="wrapper">
-    <form action="" method="post" class="form" enctype="multipart/form-data">
+    <form action="save.php" method="post" class="form" enctype="multipart/form-data">
     <p class="form__text">Модель авто</p>
         <input type="text" class="form__input" name="model" required>
 
@@ -133,15 +133,15 @@ if (!isset($_SESSION['username'])) {
 
         <p class="form__text">Превью записи</p>
         <div class="preview-container">
-            <img id="preview" class="img-preview">
-            <span id="removePreview" class="remove-preview">&times;</span>
+            <img id="preview" class="img-preview" style="display:none;">
+            <span id="removePreview" class="remove-preview" style="display:none;">&times;</span>
         </div>
         <input type="file" class="form__input" name="preview_image" id="photoInput" required>
 
         <!-- Дополнительные изображения -->
         <p class="form__text">Изображения</p>
         <div id="images"></div>
-        <input type="file" class="form__input" name="image_path" id="images-input" onChange="myFunc(this)" multiple required>
+        <input type="file" class="form__input" name="image_path[]" id="images-input" onChange="myFunc(this)" multiple required>
         <div id="image-preview"></div>
 
         <button type="submit" class="form__button btn" name="add">Добавить</button>
