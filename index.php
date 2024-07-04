@@ -1,3 +1,4 @@
+<?php include 'output.php';?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -101,112 +102,17 @@
         </div>
         <section class="auto-grid">
           <div class="auto-grid__container">
-              <div id="car-modal" class="auto-grid__item">
-              <img src="img/auto/Fiat-Egea-2022-white_(1).jpg" alt="">
-              <h1 class="auto-grid__title">M5 F90</h1>
-              <p class="auto-grid__info">Механика 5.0</p>
+              <?php foreach ($data as $car): ?>
+            <div id="car-modal" class="auto-grid__item">
+              <img src="<?= htmlspecialchars($car['preview_image']) ?>" alt="">
+              <h1 class="auto-grid__title"><?= htmlspecialchars($car['model']) ?></h1>
+              <p class="auto-grid__info"><?= htmlspecialchars($car['transmission']) ?>  <?= htmlspecialchars($car['engine_volume']) ?></p>
               <div class="auto-grid__price-wrapper">
-                <div class="auto-grid__price">240$</div>
-                <div class="auto-grid__price">240$ в день</div>
+                <div class="auto-grid__price"><?= htmlspecialchars($car['price']) ?>$</div>
+                <div class="auto-grid__price"><?= htmlspecialchars($car['price']) ?>$ в день</div>
               </div>
             </div>
-            <div class="auto-grid__item">
-              <img src="img/auto/Fiat-Egea-2022-white_(1).jpg" alt="">
-              <h1 class="auto-grid__title">M5 F90</h1>
-              <p class="auto-grid__info">Механика 5.0</p>
-              <div class="auto-grid__price-wrapper">
-                <div class="auto-grid__price">240$</div>
-                <div class="auto-grid__price">240$ в день</div>
-              </div>
-            </div>
-            <div class="auto-grid__item">
-              <img src="img/auto/Fiat-Egea-2022-white_(1).jpg" alt="">
-              <h1 class="auto-grid__title">M5 F90</h1>
-              <p class="auto-grid__info">Механика 5.0</p>
-              <div class="auto-grid__price-wrapper">
-                <div class="auto-grid__price">240$</div>
-                <div class="auto-grid__price">240$ в день</div>
-              </div>
-            </div>
-            <div class="auto-grid__item">
-              <img src="img/auto/Fiat-Egea-2022-white_(1).jpg" alt="">
-              <h1 class="auto-grid__title">M5 F90</h1>
-              <p class="auto-grid__info">Механика 5.0</p>
-              <div class="auto-grid__price-wrapper">
-                <div class="auto-grid__price">240$</div>
-                <div class="auto-grid__price">240$ в день</div>
-              </div>
-            </div><div class="auto-grid__item">
-              <img src="img/auto/Fiat-Egea-2022-white_(1).jpg" alt="">
-              <h1 class="auto-grid__title">M5 F90</h1>
-              <p class="auto-grid__info">Механика 5.0</p>
-              <div class="auto-grid__price-wrapper">
-                <div class="auto-grid__price">240$</div>
-                <div class="auto-grid__price">240$ в день</div>
-              </div>
-            </div><div class="auto-grid__item">
-              <img src="img/auto/Fiat-Egea-2022-white_(1).jpg" alt="">
-              <h1 class="auto-grid__title">M5 F90</h1>
-              <p class="auto-grid__info">Механика 5.0</p>
-              <div class="auto-grid__price-wrapper">
-                <div class="auto-grid__price">240$</div>
-                <div class="auto-grid__price">240$ в день</div>
-              </div>
-            </div>
-            <div class="auto-grid__item">
-              <img src="img/auto/Fiat-Egea-2022-white_(1).jpg" alt="">
-              <h1 class="auto-grid__title">M5 F90</h1>
-              <p class="auto-grid__info">Механика 5.0</p>
-              <div class="auto-grid__price-wrapper">
-                <div class="auto-grid__price">240$</div>
-                <div class="auto-grid__price">240$ в день</div>
-              </div>
-            </div>
-            <div class="auto-grid__item">
-              <img src="img/auto/Fiat-Egea-2022-white_(1).jpg" alt="">
-              <h1 class="auto-grid__title">M5 F90</h1>
-              <p class="auto-grid__info">Механика 5.0</p>
-              <div class="auto-grid__price-wrapper">
-                <div class="auto-grid__price">240$</div>
-                <div class="auto-grid__price">240$ в день</div>
-              </div>
-            </div>
-            <div class="auto-grid__item">
-              <img src="img/auto/Fiat-Egea-2022-white_(1).jpg" alt="">
-              <h1 class="auto-grid__title">M5 F90</h1>
-              <p class="auto-grid__info">Механика 5.0</p>
-              <div class="auto-grid__price-wrapper">
-                <div class="auto-grid__price">240$</div>
-                <div class="auto-grid__price">240$ в день</div>
-              </div>
-            </div>
-            <div class="auto-grid__item">
-              <img src="img/auto/Fiat-Egea-2022-white_(1).jpg" alt="">
-              <h1 class="auto-grid__title">M5 F90</h1>
-              <p class="auto-grid__info">Механика 5.0</p>
-              <div class="auto-grid__price-wrapper">
-                <div class="auto-grid__price">240$</div>
-                <div class="auto-grid__price">240$ в день</div>
-              </div>
-            </div>
-            <div class="auto-grid__item">
-              <img src="img/auto/Fiat-Egea-2022-white_(1).jpg" alt="">
-              <h1 class="auto-grid__title">M5 F90</h1>
-              <p class="auto-grid__info">Механика 5.0</p>
-              <div class="auto-grid__price-wrapper">
-                <div class="auto-grid__price">240$</div>
-                <div class="auto-grid__price">240$ в день</div>
-              </div>
-            </div>
-            <div class="auto-grid__item">
-              <img src="img/auto/Fiat-Egea-2022-white_(1).jpg" alt="">
-              <h1 class="auto-grid__title">M5 F90</h1>
-              <p class="auto-grid__info">Механика 5.0</p>
-              <div class="auto-grid__price-wrapper">
-                <div class="auto-grid__price">240$</div>
-                <div class="auto-grid__price">240$ в день</div>
-              </div>
-            </div>
+              <?php endforeach; ?>
           </div>
         </section>
         <section class="show">
