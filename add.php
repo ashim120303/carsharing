@@ -8,7 +8,7 @@ if (!isset($_SESSION['username'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
+<?php include 'save.php'?>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,14 +22,14 @@ if (!isset($_SESSION['username'])) {
 </form>
 <div class="wrapper">
     <form action="" method="post" class="form" enctype="multipart/form-data">
-        <p class="form__text">Модель авто</p>
+    <p class="form__text">Модель авто</p>
         <input type="text" class="form__input" name="model" required>
 
         <p class="form__text">Цена</p>
-        <input type="number" class="form__input" name="price" required>
+        <input type="number" class="form__input" name="price" step="0.01" required>
 
         <p class="form__text">Объём</p>
-        <input type="number" class="form__input" name="engine_volume" required>
+        <input type="number" class="form__input" name="engine_volume" step="0.01" required>
 
         <p class="form__text">Год авто</p>
         <input type="number" class="form__input" name="year_of_manufacture" required>
@@ -83,7 +83,7 @@ if (!isset($_SESSION['username'])) {
         </div>
 
         <p class="form__text">Расход топлива</p>
-        <input type="number" class="form__input" name="fuel_consumption" required>
+        <input type="number" class="form__input" name="fuel_consumption" step="0.01" required>
 
         <p class="form__text">Коробка</p>
         <div class="form__radio-block">
@@ -136,15 +136,15 @@ if (!isset($_SESSION['username'])) {
         </div>
         <input type="file" class="form__input" name="preview_image" id="photoInput" required>
 
-
+        <!-- Дополнительные изображения -->
         <p class="form__text">Изображения</p>
         <div id="images"></div>
-        <input type="file" class="form__input" name="images[]" id="images-input" onChange="myFunc(this)" multiple required>
+        <input type="file" class="form__input" name="image_path" id="images-input" onChange="myFunc(this)" multiple required>
         <div id="image-preview"></div>
-
 
         <button class="form__button btn" name="add">Добавить</button>
     </form>
+
 </div>
 
 <script>
