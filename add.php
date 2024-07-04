@@ -139,8 +139,9 @@ if (!isset($_SESSION['username'])) {
 
         <p class="form__text">Изображения</p>
         <div id="images"></div>
-        <input type="file" class="form__input" name="images[]" id="images" onChange="myFunc(this)" multiple required>
+        <input type="file" class="form__input" name="images[]" id="images-input" onChange="myFunc(this)" multiple required>
         <div id="image-preview"></div>
+
 
         <button class="form__button btn" name="add">Добавить</button>
     </form>
@@ -169,31 +170,60 @@ if (!isset($_SESSION['username'])) {
 
     // Multiple preview
     function myFunc(input) {
-
         var files = input.files || input.currentTarget.files;
-
         var reader = [];
-        var images = document.getElementById('images');
-        var name;
-        for (var i in files) {
+        var imagesContainer = document.getElementById('images');
+        imagesContainer.innerHTML = '';  // Clear previous images
+
+        for (var i = 0; i < files.length; i++) {
             if (files.hasOwnProperty(i)) {
-                name = 'file' + i;
-
                 reader[i] = new FileReader();
-                reader[i].readAsDataURL(input.files[i]);
+                reader[i].readAsDataURL(files[i]);
 
-                images.innerHTML += '<img id="'+ name +'" src="" />';
+                var imageWrapper = document.createElement('div');
+                imageWrapper.classList.add('image-wrapper');
+                imageWrapper.id = 'file' + i + '-wrapper';
 
-                (function (name) {
-                    reader[i].onload = function (e) {
-                        console.log(document.getElementById(name));
-                        document.getElementById(name).src = e.target.result;
+                var imageElement = document.createElement('img');
+                imageElement.id = 'file' + i;
+                imageWrapper.appendChild(imageElement);
+
+                var closeButton = document.createElement('span');
+                closeButton.innerHTML = '&times;';
+                closeButton.classList.add('close-button');
+                closeButton.onclick = (function(index) {
+                    return function() {
+                        removeImage(index);
                     };
-                })(name);
-                console.log(files[i]);
+                })(i);
+                imageWrapper.appendChild(closeButton);
+
+                imagesContainer.appendChild(imageWrapper);
+
+                (function (imgElement) {
+                    reader[i].onload = function (e) {
+                        imgElement.src = e.target.result;
+                    };
+                })(imageElement);
             }
         }
     }
+
+    function removeImage(index) {
+        var imageWrapper = document.getElementById('file' + index + '-wrapper');
+        imageWrapper.remove();
+
+        var inputElement = document.getElementById('images-input');
+        var dt = new DataTransfer();
+
+        for (var i = 0; i < inputElement.files.length; i++) {
+            if (i !== index) {
+                dt.items.add(inputElement.files[i]);
+            }
+        }
+        inputElement.files = dt.files;
+    }
+
 </script>
 </body>
 
