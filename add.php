@@ -130,8 +130,12 @@ if (!isset($_SESSION['username'])) {
         </div>
 
         <p class="form__text">Превью записи</p>
-        <img id="preview" class="img-preview">
+        <div class="preview-container">
+            <img id="preview" class="img-preview">
+            <span id="removePreview" class="remove-preview">&times;</span>
+        </div>
         <input type="file" class="form__input" name="preview_image" id="photoInput" required>
+
 
         <p class="form__text">Изображения</p>
         <input type="file" class="form__input" name="images[]" id="images" multiple required>
@@ -149,8 +153,17 @@ if (!isset($_SESSION['username'])) {
             var output = document.getElementById('preview');
             output.src = reader.result;
             output.style.display = 'block';
+            document.getElementById('removePreview').style.display = 'block';
         };
         reader.readAsDataURL(event.target.files[0]);
+    };
+
+    document.getElementById('removePreview').onclick = function() {
+        var preview = document.getElementById('preview');
+        preview.src = '';
+        preview.style.display = 'none';
+        this.style.display = 'none';
+        document.getElementById('photoInput').value = null; // Очистка input файла
     };
 </script>
 </body>
