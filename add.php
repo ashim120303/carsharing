@@ -5,10 +5,12 @@ if (!isset($_SESSION['username'])) {
     header("Location: index.php");
     exit();
 }
+
 ?>
+<?php include 'save.php';?>
+
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'save.php'?>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -142,7 +144,7 @@ if (!isset($_SESSION['username'])) {
         <input type="file" class="form__input" name="image_path" id="images-input" onChange="myFunc(this)" multiple required>
         <div id="image-preview"></div>
 
-        <button class="form__button btn" name="add">Добавить</button>
+        <button type="submit" class="form__button btn" name="add">Добавить</button>
     </form>
 
 </div>
