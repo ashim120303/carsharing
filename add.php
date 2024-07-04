@@ -20,8 +20,8 @@ if (!isset($_SESSION['username'])) {
 <form action="logout.php" method="POST">
     <button class="logout" type="submit">Выйти</button>
 </form>
-  <div class="wrapper">
-      <form action="" method="post" class="form">
+<div class="wrapper">
+    <form action="" method="post" class="form" enctype="multipart/form-data">
         <p class="form__text">Модель авто</p>
         <input type="text" class="form__input" name="model" required>
 
@@ -39,16 +39,16 @@ if (!isset($_SESSION['username'])) {
 
         <p class="form__text">Привод</p>
         <div class="form__radio-block">
-          <input type="radio" id="Передний" class="form__input" name="drive" value="Передний" required>
-          <label for="Передний">Передний</label>
+            <input type="radio" id="Передний" class="form__input" name="drive" value="Передний" required>
+            <label for="Передний">Передний</label>
         </div>
         <div class="form__radio-block">
-          <input type="radio" id="Задний" class="form__input" name="drive" value="Задний" required>
-          <label for="Задний">Задний</label>
+            <input type="radio" id="Задний" class="form__input" name="drive" value="Задний" required>
+            <label for="Задний">Задний</label>
         </div>
         <div class="form__radio-block">
-          <input type="radio" id="Полный" class="form__input" name="drive" value="Полный" required>
-          <label for="Полный">Полный</label>
+            <input type="radio" id="Полный" class="form__input" name="drive" value="Полный" required>
+            <label for="Полный">Полный</label>
         </div>
 
         <p class="form__text">Мощность двигателя</p>
@@ -56,66 +56,103 @@ if (!isset($_SESSION['username'])) {
 
         <p class="form__text">Топливо</p>
         <div class="form__radio-block">
-          <input type="radio" id="Дизель" class="form__input" name="fuel_type" value="Дизель" required>
-          <label for="Дизель">Дизель</label>
+            <input type="radio" id="Дизель" class="form__input" name="fuel_type" value="Дизель" required>
+            <label for="Дизель">Дизель</label>
         </div>
         <div class="form__radio-block">
-          <input type="radio" id="Бензин" class="form__input" name="fuel_type" value="Бензин" required>
-          <label for="Бензин">Бензин</label>
+            <input type="radio" id="Бензин" class="form__input" name="fuel_type" value="Бензин" required>
+            <label for="Бензин">Бензин</label>
         </div>
         <div class="form__radio-block">
-          <input type="radio" id="Электро" class="form__input" name="fuel_type" value="Электро" required>
-          <label for="Электро">Электро</label>
+            <input type="radio" id="Электро" class="form__input" name="fuel_type" value="Электро" required>
+            <label for="Электро">Электро</label>
         </div>
         <div class="form__radio-block">
-          <input type="radio" id="Гибрид" class="form__input" name="fuel_type" value="Гибрид" required>
-          <label for="Гибрид">Гибрид</label>
+            <input type="radio" id="Гибрид" class="form__input" name="fuel_type" value="Гибрид" required>
+            <label for="Гибрид">Гибрид</label>
         </div>
 
         <p class="form__text">Сторона руля</p>
         <div class="form__radio-block">
-          <input type="radio" id="Лево" class="form__input" name="steering_side" value="Лево" required>
-          <label for="Лево">Лево</label>
+            <input type="radio" id="Лево" class="form__input" name="steering_side" value="Лево" required>
+            <label for="Лево">Лево</label>
         </div>
         <div class="form__radio-block">
-          <input type="radio" id="Право" class="form__input" name="steering_side" value="Право" required>
-          <label for="Право">Право</label>
+            <input type="radio" id="Право" class="form__input" name="steering_side" value="Право" required>
+            <label for="Право">Право</label>
         </div>
 
-        <p class="form__text">fuel_consumption</p>
+        <p class="form__text">Расход топлива</p>
         <input type="number" class="form__input" name="fuel_consumption" required>
 
         <p class="form__text">Коробка</p>
         <div class="form__radio-block">
-          <input type="radio" id="Механика" class="form__input" name="transmission" value="Механика" required>
-          <label for="Механика">Механика</label>
+            <input type="radio" id="Механика" class="form__input" name="transmission" value="Механика" required>
+            <label for="Механика">Механика</label>
         </div>
         <div class="form__radio-block">
-          <input type="radio" id="Автомат" class="form__input" name="transmission" value="Автомат" required>
-          <label for="Автомат">Автомат</label>
+            <input type="radio" id="Автомат" class="form__input" name="transmission" value="Автомат" required>
+            <label for="Автомат">Автомат</label>
         </div>
         <div class="form__radio-block">
-          <input type="radio" id="Робот" class="form__input" name="transmission" value="Робот" required>
-          <label for="Робот">Робот</label>
+            <input type="radio" id="Робот" class="form__input" name="transmission" value="Робот" required>
+            <label for="Робот">Робот</label>
         </div>
 
         <p class="form__text">Категория авто</p>
         <div class="form__radio-block">
-          <input type="radio" id="Механика" class="form__input" name="category_id" value="Механика" required>
-          <label for="Механика">Кабриолеты</label>
+            <input type="radio" id="Компактные" class="form__input" name="category" value="Компактные" required>
+            <label for="Компактные">Компактные</label>
         </div>
         <div class="form__radio-block">
-          <input type="radio" id="Автомат" class="form__input" name="category_id" value="Автомат" required>
-          <label for="Автомат">Минивэны</label>
+            <input type="radio" id="Средний класс" class="form__input" name="category" value="Средний класс" required>
+            <label for="Средний класс">Средний класс</label>
         </div>
         <div class="form__radio-block">
-          <input type="radio" id="Робот" class="form__input" name="category_id" value="Робот" required>
-          <label for="Робот">Бездорожник</label>
+            <input type="radio" id="Кроссоверы" class="form__input" name="category" value="Кроссоверы" required>
+            <label for="Кроссоверы">Кроссоверы</label>
+        </div>
+        <div class="form__radio-block">
+            <input type="radio" id="Люкс" class="form__input" name="category" value="Люкс" required>
+            <label for="Люкс">Люкс</label>
+        </div>
+        <div class="form__radio-block">
+            <input type="radio" id="Кабриолеты" class="form__input" name="category" value="Кабриолеты" required>
+            <label for="Кабриолеты">Кабриолеты</label>
+        </div>
+        <div class="form__radio-block">
+            <input type="radio" id="Минивэны" class="form__input" name="category" value="Минивэны" required>
+            <label for="Минивэны">Минивэны</label>
+        </div>
+        <div class="form__radio-block">
+            <input type="radio" id="Мото" class="form__input" name="category" value="Мото" required>
+            <label for="Мото">Мото</label>
         </div>
 
+        <p class="form__text">Превью записи</p>
+        <input type="file" class="form__input" name="preview_image" id="photoInput" required>
+        <img id="preview" style="display: none;" class="img-pre">
+
+
+        <p class="form__text">Изображения</p>
+        <input type="file" class="form__input" name="images[]" id="images" multiple required>
+        <div id="image-preview"></div>
+
         <button class="form__button btn" name="add">Добавить</button>
-      </form>
-    </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('photoInput').onchange = function(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var output = document.getElementById('preview');
+            output.src = reader.result;
+            output.style.display = 'block';
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    };
+</script>
 </body>
 
 </html>
