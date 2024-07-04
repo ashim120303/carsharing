@@ -68,6 +68,7 @@ if (isset($_POST['add'])) {
             }
 
             echo "Данные успешно сохранены.";
+            header("Location: add.php");
         } else {
             echo "Ошибка: " . $insert_car_sql . "<br>" . $conn->error;
         }
@@ -75,7 +76,8 @@ if (isset($_POST['add'])) {
         echo "Не все данные заполнены.";
     }
 } else {
-    echo "Недопустимая попытка доступа.";
+    header("Location: add.php");
 }
 
 $conn->close();
+?>
