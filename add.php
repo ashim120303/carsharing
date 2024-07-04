@@ -138,7 +138,8 @@ if (!isset($_SESSION['username'])) {
 
 
         <p class="form__text">Изображения</p>
-        <input type="file" class="form__input" name="images[]" id="images" multiple required>
+        <div id="images"></div>
+        <input type="file" class="form__input" name="images[]" id="images" onChange="myFunc(this)" multiple required>
         <div id="image-preview"></div>
 
         <button class="form__button btn" name="add">Добавить</button>
@@ -165,6 +166,34 @@ if (!isset($_SESSION['username'])) {
         this.style.display = 'none';
         document.getElementById('photoInput').value = null; // Очистка input файла
     };
+
+    // Multiple preview
+    function myFunc(input) {
+
+        var files = input.files || input.currentTarget.files;
+
+        var reader = [];
+        var images = document.getElementById('images');
+        var name;
+        for (var i in files) {
+            if (files.hasOwnProperty(i)) {
+                name = 'file' + i;
+
+                reader[i] = new FileReader();
+                reader[i].readAsDataURL(input.files[i]);
+
+                images.innerHTML += '<img id="'+ name +'" src="" />';
+
+                (function (name) {
+                    reader[i].onload = function (e) {
+                        console.log(document.getElementById(name));
+                        document.getElementById(name).src = e.target.result;
+                    };
+                })(name);
+                console.log(files[i]);
+            }
+        }
+    }
 </script>
 </body>
 

@@ -60,7 +60,7 @@ input:focus {outline: none;}
   }
 }
 /* PREVIEW STYLES */
-.img-preview {
+.img-preview{
   width: 150px;
   margin-bottom: 20px;
 }
@@ -82,3 +82,7 @@ input:focus {outline: none;}
   font-size: 40px;
 }
 
+#images img {
+  width: 150px;
+  margin: 5px; /* Опциональный отступ между изображениями */
+}
