@@ -45,9 +45,6 @@ $db_images = array_merge($db_car_images, $db_car_preview_images);
 foreach ($directory_images as $image) {
     if (!in_array($image, $db_images)) {
         unlink($upload_dir . $image);
-        echo "deleted " . $image . "<br>";
-    }else{
-        echo "<b>Есть совпадение в бд для изобрадения:</b> " . $image . "<br>";
     }
 }
 

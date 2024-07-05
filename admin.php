@@ -6,7 +6,10 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 ?>
-<?php include 'output.php';?>
+<?php
+    include 'output.php';
+    include 'delete-img.php'
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -69,7 +72,7 @@ if (!isset($_SESSION['username'])) {
         <p>Вы действительно хотите безвозвратно удалить запись?</p>
         <form action="delete.php" method="post" id="deleteForm">
             <input type="hidden" name="car_id" id="deleteCarId">
-            <button type="submit">Удалить аккаунт</button>
+            <button type="submit">Удалить запись</button>
         </form>
     </div>
 </div>

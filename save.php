@@ -68,7 +68,7 @@ if (isset($_POST['add'])) {
             }
 
             echo "Данные успешно сохранены.";
-            header("Location: add.php");
+            header("Location: admin.php");
         } else {
             echo "Ошибка: " . $insert_car_sql . "<br>" . $conn->error;
         }

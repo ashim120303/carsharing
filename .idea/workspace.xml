@@ -5,22 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="959c78f1-1c38-4ad7-b54d-5f916194ed2a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/save.php" beforeDir="false" afterPath="$PROJECT_DIR$/save.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/image_6687b33cf1962_Screenshot from 2023-10-25 10-14-40.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/image_6687b33d013ba_Screenshot from 2023-10-25 10-08-19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/image_6687b33d0493a_Screenshot from 2023-10-16 21-23-27.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/image_6687b33d06fb8_Screenshot from 2023-10-14 20-00-33.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/image_6687b33d09854_Screenshot from 2023-10-14 15-08-26.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/image_6687b33d0c127_Screenshot from 2023-10-14 15-08-18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/image_6687b33d0e7e3_Screenshot from 2023-10-14 13-20-51.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/image_6687b33d11270_Screenshot from 2023-10-07 18-42-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/preview_6687b33cedcc0_Screenshot from 2023-10-14 13-20-51.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
