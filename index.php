@@ -123,7 +123,9 @@
                               </div>
                           </div>
                           <div class="modal-img-block">
-                              <img src="img/auto/Fiat-Egea-2022-white_(1).jpg" alt="" class="modal-imgs">
+                              <?php foreach ($car['images'] as $image): ?>
+                                  <img src="<?= htmlspecialchars($image) ?>" alt="" class="modal-imgs">
+                              <?php endforeach; ?>
                           </div>
                       </div>
                   </div>
