@@ -354,6 +354,7 @@ body {font-family: sans-serif;font-size: 14px;color: #303030;}
   min-width: 100%;
 }
 .auto-grid__item {
+  position: relative;
   border: 1px solid #e7e8ea;
   border-left: 0;
   border-top: 0;
@@ -638,10 +639,61 @@ body {font-family: sans-serif;font-size: 14px;color: #303030;}
 
 .footer__link,.social__link {transition: color 0.3s;}
 
+.auto-grid__buttons{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.auto-grid__button img{
+  height: 30px;
+  width: 30px;
+}
 
+/*Delete Modal*/
 
+.modal-delete {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+.modal-content-delete {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  max-width: 400px;
+}
+.modal-content-delete button{
+  display: block;
+  width: 140px;
+  height: 30px;
+  background-color: red;
+  margin-top: 20px;
+  margin: 0 auto;
+  text-align: center;
+}
 
+/* The Close Button */
+.close-delete {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin-right: -10px;
+  margin-top: -20px;
+}
 
-
+.close-delete:hover,
+.close-delete:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
 
 

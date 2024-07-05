@@ -63,11 +63,28 @@ if (!isset($_SESSION['username'])) {
         </div>
     </div>
 <?php endforeach; ?>
-
+<div id="modalDelete" class="modal-delete">
+    <div class="modal-content-delete">
+        <span class="close-delete">&times;</span>
+        <p>Вы действительно хотите безвозвратно удалить запись?</p>
+        <form action="delete.php" method="post" id="deleteForm">
+            <input type="hidden" name="car_id" id="deleteCarId">
+            <button type="submit">Удалить аккаунт</button>
+        </form>
+    </div>
+</div>
 <section class="auto-grid">
     <div class="auto-grid__container">
         <?php foreach ($data as $car): ?>
             <div id="modal-trigger-<?= htmlspecialchars($car['id']) ?>" class="auto-grid__item">
+                <div class="auto-grid__buttons">
+                    <button class="auto-grid__button deleteBtn" data-car-id="<?= htmlspecialchars($car['id']) ?>">
+                        <img src="img/icons/trash-red.svg" alt="Delete">
+                    </button>
+                    <a href="edit.php" class="auto-grid__button">
+                        <img src="img/icons/edit.svg" alt="Edit">
+                    </a>
+                </div>
                 <img src="<?= htmlspecialchars($car['preview_image']) ?>" alt="">
                 <h1 class="auto-grid__title"><?= htmlspecialchars($car['model']) ?></h1>
                 <p class="auto-grid__info"><?= htmlspecialchars($car['transmission']) ?> <?= htmlspecialchars($car['engine_volume']) ?></p>
@@ -80,6 +97,32 @@ if (!isset($_SESSION['username'])) {
     </div>
 </section>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var deleteButtons = document.querySelectorAll('.deleteBtn');
+        var modalDelete = document.getElementById('modalDelete');
+        var closeDelete = document.querySelector('.close-delete');
+        var deleteCarIdInput = document.getElementById('deleteCarId');
+
+        deleteButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var carId = button.getAttribute('data-car-id');
+                deleteCarIdInput.value = carId;
+                modalDelete.style.display = 'block';
+            });
+        });
+
+        closeDelete.addEventListener('click', function() {
+            modalDelete.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target == modalDelete) {
+                modalDelete.style.display = 'none';
+            }
+        });
+    });
+</script>
 <script src="js/app.js"></script>
 </body>
 </html>

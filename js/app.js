@@ -3,6 +3,14 @@ document.addEventListener("DOMContentLoaded", function() {
   var modals = document.getElementsByClassName("modal");
   var triggers = document.getElementsByClassName("auto-grid__item");
   var spans = document.getElementsByClassName("close");
+  var buttons = document.querySelectorAll(".auto-grid__button");
+
+  // Prevent modal trigger when clicking buttons
+  buttons.forEach(function(button) {
+    button.addEventListener("click", function(event) {
+      event.stopPropagation();
+    });
+  });
 
   Array.prototype.forEach.call(triggers, function(trigger) {
     trigger.onclick = function() {
@@ -53,3 +61,5 @@ document.querySelector('.hero__anchor').addEventListener('click', function(event
   document.getElementById('auto').scrollIntoView({ behavior: 'smooth' });
 });
 
+
+// Delete modal
