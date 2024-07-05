@@ -78,7 +78,7 @@ input:focus {outline: none;}
   cursor: pointer;
   color: red;
   padding: 5px;
-  display: none; /* Скрыть изначально, показывать при наличии превью */
+  display: none;
   font-size: 40px;
 }
 

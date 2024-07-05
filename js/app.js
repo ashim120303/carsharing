@@ -1,20 +1,31 @@
 // Modal window
 document.addEventListener("DOMContentLoaded", function() {
-  var modal = document.getElementById("myModal");
-  var carModal = document.getElementById("car-modal");
-  var span = document.getElementsByClassName("close")[0];
-  carModal.onclick = function() {
-    modal.style.display = "block";
-  }
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
-  window.onclick = function(event) {
-    if (event.target == modal) {
+  var modals = document.getElementsByClassName("modal");
+  var triggers = document.getElementsByClassName("auto-grid__item");
+  var spans = document.getElementsByClassName("close");
+
+  Array.prototype.forEach.call(triggers, function(trigger) {
+    trigger.onclick = function() {
+      var id = this.id.replace('modal-trigger-', '');
+      var modal = document.getElementById('car-modal-' + id);
+      modal.style.display = "block";
+    };
+  });
+
+  Array.prototype.forEach.call(spans, function(span) {
+    span.onclick = function() {
+      var modal = this.closest('.modal');
       modal.style.display = "none";
+    };
+  });
+
+  window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+      event.target.style.display = "none";
     }
-  }
+  };
 });
+
 
 // Auth modal
 document.addEventListener("DOMContentLoaded", function() {

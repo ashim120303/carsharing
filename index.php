@@ -86,36 +86,66 @@
             <div class="search-car__item">Мото</div>
           </div>
         </section>
-        <div id="myModal" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="auto-grid__item">
-              <img src="img/auto/Fiat-Egea-2022-white_(1).jpg" alt="">
-              <h1 class="auto-grid__title">M5 F90</h1>
-              <p class="auto-grid__info">Механика 5.0</p>
-              <div class="auto-grid__price-wrapper">
-                <div class="auto-grid__price">240$</div>
-                <div class="auto-grid__price">240$ в день</div>
+          <?php foreach ($data as $car): ?>
+              <div id="car-modal-<?= htmlspecialchars($car['id']) ?>" class="modal">
+                  <div class="modal-content">
+                      <span class="close">&times;</span>
+                      <div class="modal-car">
+                          <img src="<?= htmlspecialchars($car['preview_image']) ?>" alt="" class="modal-img">
+                          <h2 class="modal-title"><?= htmlspecialchars($car['model']) ?></h2>
+                          <div class="modal-description">
+                              <div class="modal-description-item">
+                                <b>Цена:</b> <?= htmlspecialchars($car['price']) ?>$
+                              </div>
+                              <div class="modal-description-item">
+                                <b>Объём:</b> <?= htmlspecialchars($car['engine_volume']) ?>л
+                              </div>
+                              <div class="modal-description-item">
+                                <b>Год выпуска:</b> <?= htmlspecialchars($car['year_of_manufacture']) ?>
+                              </div>
+                              <div class="modal-description-item">
+                                <b>Колличество мест:</b> <?= htmlspecialchars($car['number_of_seats']) ?>
+                              </div>
+                              <div class="modal-description-item">
+                                <b>Привод:</b> <?= htmlspecialchars($car['drive']) ?>
+                              </div>
+                              <div class="modal-description-item">
+                                <b>Мощность двигателя:</b> <?= htmlspecialchars($car['engine_power']) ?> лс
+                              </div>
+                              <div class="modal-description-item">
+                                <b>Топливо:</b> <?= htmlspecialchars($car['fuel_type']) ?>
+                              </div>
+                              <div class="modal-description-item">
+                                <b>Коробка передач:</b> <?= htmlspecialchars($car['transmission']) ?>
+                              </div>
+                              <div class="modal-description-item">
+                                <b>Категория авто:</b> <?= htmlspecialchars($car['category']) ?>
+                              </div>
+                          </div>
+                          <div class="modal-img-block">
+                              <img src="img/auto/Fiat-Egea-2022-white_(1).jpg" alt="" class="modal-imgs">
+                          </div>
+                      </div>
+                  </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <section class="auto-grid">
-          <div class="auto-grid__container">
-              <?php foreach ($data as $car): ?>
-            <div id="car-modal" class="auto-grid__item">
-              <img src="<?= htmlspecialchars($car['preview_image']) ?>" alt="">
-              <h1 class="auto-grid__title"><?= htmlspecialchars($car['model']) ?></h1>
-              <p class="auto-grid__info"><?= htmlspecialchars($car['transmission']) ?>  <?= htmlspecialchars($car['engine_volume']) ?></p>
-              <div class="auto-grid__price-wrapper">
-                <div class="auto-grid__price"><?= htmlspecialchars($car['price']) ?>$</div>
-                <div class="auto-grid__price"><?= htmlspecialchars($car['price']) ?>$ в день</div>
+          <?php endforeach; ?>
+
+          <section class="auto-grid">
+              <div class="auto-grid__container">
+                  <?php foreach ($data as $car): ?>
+                      <div id="modal-trigger-<?= htmlspecialchars($car['id']) ?>" class="auto-grid__item">
+                          <img src="<?= htmlspecialchars($car['preview_image']) ?>" alt="">
+                          <h1 class="auto-grid__title"><?= htmlspecialchars($car['model']) ?></h1>
+                          <p class="auto-grid__info"><?= htmlspecialchars($car['transmission']) ?> <?= htmlspecialchars($car['engine_volume']) ?></p>
+                          <div class="auto-grid__price-wrapper">
+                              <div class="auto-grid__price"><?= htmlspecialchars($car['price']) ?>$</div>
+                              <div class="auto-grid__price"><?= htmlspecialchars($car['price']) ?>$ в день</div>
+                          </div>
+                      </div>
+                  <?php endforeach; ?>
               </div>
-            </div>
-              <?php endforeach; ?>
-          </div>
-        </section>
-        <section class="show">
+          </section>
+          <section class="show">
           <div class="show__container">
             <div class="show__text">
               Показано 24 из 362 автомобиля
