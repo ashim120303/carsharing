@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Проверяем, существует ли пользователь и совпадает ли пароль
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['username'] = $user['username'];
-        header("Location: add.php");
+        header("Location: admin.php");
         exit();
     } else {
         echo "Неверное имя пользователя или пароль.";

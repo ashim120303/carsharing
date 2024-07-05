@@ -6,23 +6,20 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 ?>
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add car</title>
-  <link rel="stylesheet" href="css/add.css">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin</title>
+    <link rel="stylesheet" href="css/add.css">
 </head>
-
 <body>
-<form action="logout.php" method="POST">
-    <button class="logout" type="submit">Выйти</button>
-</form>
 <div class="wrapper">
-    <form action="save.php" method="post" class="form" enctype="multipart/form-data">
-    <p class="form__text">Модель авто</p>
+    <form action="" method="post" class="form" enctype="multipart/form-data">
+        <p class="form__text">Модель авто</p>
         <input type="text" class="form__input" name="model" required>
 
         <p class="form__text">Цена</p>
@@ -142,7 +139,7 @@ if (!isset($_SESSION['username'])) {
         <input type="file" class="form__input" name="image_path[]" id="images-input" onChange="myFunc(this)" multiple required>
         <div id="image-preview"></div>
 
-        <button type="submit" class="form__button btn" name="add">Добавить</button>
+        <button type="submit" class="form__button btn" name="edit">Добавить</button>
     </form>
 
 </div>
@@ -226,5 +223,4 @@ if (!isset($_SESSION['username'])) {
 
 </script>
 </body>
-
 </html>
