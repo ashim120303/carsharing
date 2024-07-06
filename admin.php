@@ -84,7 +84,7 @@ if (!isset($_SESSION['username'])) {
                     <button class="auto-grid__button deleteBtn" data-car-id="<?= htmlspecialchars($car['id']) ?>">
                         <img src="img/icons/trash-red.svg" alt="Delete">
                     </button>
-                    <a href="edit.php" class="auto-grid__button">
+                    <a href="edit.php?id=<?php echo $carId; ?>" class="auto-grid__button">
                         <img src="img/icons/edit.svg" alt="Edit">
                     </a>
                 </div>
