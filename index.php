@@ -1,4 +1,14 @@
-<?php include 'output.php';?>
+<?php
+include 'output.php';
+
+// Подсчитываем количество записей и среднее значение price
+$count = count($data); // количество записей
+$averagePrice = 0;
+if ($count > 0) {
+    $totalPrice = array_sum(array_column($data, 'price'));
+    $averagePrice = $totalPrice / $count;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,9 +55,9 @@
             <div class="hero__container">
               
               <h1 class="hero__main-title">Аренда авто в Турции</h1>
-              <p class="hero__text">
-                Всего 3342 автомобиля со средним чеком 33€ в сутки
-              </p>
+                <p class="hero__text">
+                    Всего <?= $count ?> автомобиля со средним чеком <?= number_format($averagePrice, 2) ?>$ в сутки
+                </p>
             </div>
             <a href="#auto" class="hero__anchor">
               <img src="img/hero/arrow-down.svg" alt="arrow down" />
@@ -76,14 +86,14 @@
         </section>
         <section id="auto" class="search-car">
           <div class="search-car__container">
-            <div class="search-car__item">Все</div>
-            <div class="search-car__item">Компактные</div>
-            <div class="search-car__item">Средний класс</div>
-            <div class="search-car__item">Кроссоверы</div>
-            <div class="search-car__item">Люкс</div>
-            <div class="search-car__item">Кабриолеты</div>
-            <div class="search-car__item">Минивэны</div>
-            <div class="search-car__item">Мото</div>
+            <div class="search-car__item">Все <?= $count ?></div>
+            <div class="search-car__item">Компактные <?= isset($categoryCounts['Компактные']) ? $categoryCounts['Компактные'] : 0 ?></div>
+            <div class="search-car__item">Средний класс <?= isset($categoryCounts['Средний класс']) ? $categoryCounts['Средний класс'] : 0 ?></div>
+            <div class="search-car__item">Кроссоверы <?= isset($categoryCounts['Кроссоверы']) ? $categoryCounts['Кроссоверы'] : 0 ?></div>
+            <div class="search-car__item">Люкс <?= isset($categoryCounts['Люкс']) ? $categoryCounts['Люкс'] : 0 ?></div>
+            <div class="search-car__item">Кабриолеты <?= isset($categoryCounts['Кабриолеты']) ? $categoryCounts['Кабриолеты'] : 0 ?></div>
+            <div class="search-car__item">Минивэны <?= isset($categoryCounts['Минивэны']) ? $categoryCounts['Минивэны'] : 0 ?></div>
+            <div class="search-car__item">Мото <?= isset($categoryCounts['Мото']) ? $categoryCounts['Мото'] : 0 ?></div>
           </div>
         </section>
           <?php foreach ($data as $car): ?>

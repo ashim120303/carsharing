@@ -37,6 +37,17 @@ if ($result->num_rows > 0) {
         }
     }
 }
+$sql = "SELECT car.category, COUNT(car.id) AS category_count
+        FROM car
+        GROUP BY car.category";
+$result = $conn->query($sql);
+
+$categoryCounts = [];
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $categoryCounts[$row['category']] = $row['category_count'];
+    }
+}
 
 $conn->close();
 return $data;

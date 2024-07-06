@@ -37,6 +37,18 @@ if (!isset($_SESSION['username'])) {
         </div>
     </header>
     <main class="main" style="margin-top: 65px">
+        <section id="auto" class="search-car">
+            <div class="search-car__container">
+                <div class="search-car__item">Все</div>
+                <div class="search-car__item">Компактные</div>
+                <div class="search-car__item">Средний класс</div>
+                <div class="search-car__item">Кроссоверы</div>
+                <div class="search-car__item">Люкс</div>
+                <div class="search-car__item">Кабриолеты</div>
+                <div class="search-car__item">Минивэны</div>
+                <div class="search-car__item">Мото</div>
+            </div>
+        </section>
         <section class="auto-grid">
             <div class="auto-grid__container">
                 <?php foreach ($data as $car): ?>
