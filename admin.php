@@ -21,6 +21,47 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<div class="wrapper">
+    <header class="header">
+        <div class="header__container">
+            <a href="#" class="heaser__logo">
+                <img src="img/hero/logo.svg" alt="localrent.com" />
+            </a>
+            <div class="header__right-block">
+                <a href="/" class="header__link">На главную</a>
+                <a href="add.php" class="header__link">Добавить запись</a>
+                <form action="logout.php" method="POST">
+                    <button class="logout header__link" type="submit">Выйти</button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <main class="main" style="margin-top: 65px">
+        <section class="auto-grid">
+            <div class="auto-grid__container">
+                <?php foreach ($data as $car): ?>
+                    <div id="modal-trigger-<?= htmlspecialchars($car['id']) ?>" class="auto-grid__item">
+                        <div class="auto-grid__buttons">
+                            <button class="auto-grid__button deleteBtn" data-car-id="<?= htmlspecialchars($car['id']) ?>">
+                                <img src="img/icons/trash-red.svg" alt="Delete">
+                            </button>
+                            <a href="edit.php?id=<?= htmlspecialchars($car['id']) ?>" class="auto-grid__button">
+                                <img src="img/icons/edit.svg" alt="Edit">
+                            </a>
+                        </div>
+                        <img src="<?= htmlspecialchars($car['preview_image']) ?>" alt="">
+                        <h1 class="auto-grid__title"><?= htmlspecialchars($car['model']) ?></h1>
+                        <p class="auto-grid__info"><?= htmlspecialchars($car['transmission']) ?> <?= htmlspecialchars($car['engine_volume']) ?></p>
+                        <div class="auto-grid__price-wrapper">
+                            <div class="auto-grid__price"><?= htmlspecialchars($car['price']) ?>$</div>
+                            <div class="auto-grid__price"><?= htmlspecialchars($car['price']) ?>$ в день</div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </section>
+    </main>
+</div>
 <?php foreach ($data as $car): ?>
     <div id="car-modal-<?= htmlspecialchars($car['id']) ?>" class="modal">
         <div class="modal-content">
@@ -76,30 +117,6 @@ if (!isset($_SESSION['username'])) {
         </form>
     </div>
 </div>
-<section class="auto-grid">
-    <div class="auto-grid__container">
-        <?php foreach ($data as $car): ?>
-            <div id="modal-trigger-<?= htmlspecialchars($car['id']) ?>" class="auto-grid__item">
-                <div class="auto-grid__buttons">
-                    <button class="auto-grid__button deleteBtn" data-car-id="<?= htmlspecialchars($car['id']) ?>">
-                        <img src="img/icons/trash-red.svg" alt="Delete">
-                    </button>
-                    <a href="edit.php?id=<?= htmlspecialchars($car['id']) ?>" class="auto-grid__button">
-                        <img src="img/icons/edit.svg" alt="Edit">
-                    </a>
-                </div>
-                <img src="<?= htmlspecialchars($car['preview_image']) ?>" alt="">
-                <h1 class="auto-grid__title"><?= htmlspecialchars($car['model']) ?></h1>
-                <p class="auto-grid__info"><?= htmlspecialchars($car['transmission']) ?> <?= htmlspecialchars($car['engine_volume']) ?></p>
-                <div class="auto-grid__price-wrapper">
-                    <div class="auto-grid__price"><?= htmlspecialchars($car['price']) ?>$</div>
-                    <div class="auto-grid__price"><?= htmlspecialchars($car['price']) ?>$ в день</div>
-                </div>
-            </div>
-        <?php endforeach; ?>
-    </div>
-</section>
-
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var deleteButtons = document.querySelectorAll('.deleteBtn');

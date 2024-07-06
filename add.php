@@ -17,9 +17,7 @@ if (!isset($_SESSION['username'])) {
 </head>
 
 <body>
-<form action="logout.php" method="POST">
-    <button class="logout" type="submit">Выйти</button>
-</form>
+<a href="admin.php" style="position: absolute; top: 10px; left: 10px; font-size: 24px;">Назад</a>
 <div class="wrapper">
     <form action="save.php" method="post" class="form" enctype="multipart/form-data">
     <p class="form__text">Модель авто</p>
