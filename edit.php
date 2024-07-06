@@ -191,9 +191,9 @@ $conn->close();
         <p class="form__text">Изображения</p>
         <div id="images">
             <?php foreach ($images as $index => $image): ?>
-                <div class="image-wrapper">
+                <div class="image-wrapper" id="image-wrapper-<?php echo $index; ?>">
                     <img src="<?php echo $image; ?>" class="img-preview" id="image-<?php echo $index; ?>">
-                    <span class="close-button" onclick="removeImage(<?php echo $index; ?>)">&times;</span>
+                    <span class="close-button" onclick="removeExistingImage(<?php echo $index; ?>)">&times;</span>
                     <input type="hidden" name="existing_images[]" value="<?php echo $image; ?>">
                 </div>
             <?php endforeach; ?>
@@ -210,11 +210,9 @@ $conn->close();
         var removePreviewButton = document.getElementById('removePreview');
 
         if (previewImage.src && previewImage.src !== window.location.href) {
-            console.log("Preview image source: " + previewImage.src);
             previewImage.style.display = 'block';
             removePreviewButton.style.display = 'block';
         } else {
-            console.log("No preview image found.");
             previewImage.style.display = 'none';
             removePreviewButton.style.display = 'none';
         }
@@ -240,10 +238,15 @@ $conn->close();
         document.getElementsByName('existing_preview_image')[0].value = ''; // Очистка hidden input
     };
 
-    function removeImage(index) {
-        var imageWrapper = document.getElementsByClassName('image-wrapper')[index];
-        imageWrapper.remove();
-        document.getElementsByName('existing_images[]')[index].remove();
+    function removeExistingImage(index) {
+        var imageWrapper = document.getElementById('image-wrapper-' + index);
+        if (imageWrapper) {
+            imageWrapper.remove();
+        }
+        var hiddenInput = document.querySelectorAll('input[name="existing_images[]"]')[index];
+        if (hiddenInput) {
+            hiddenInput.remove();
+        }
     }
 
     document.getElementById('images-input').onchange = function(event) {
@@ -256,8 +259,9 @@ $conn->close();
             reader.onload = function(e) {
                 var div = document.createElement('div');
                 div.classList.add('image-wrapper');
+                div.setAttribute('id', 'new-image-wrapper-' + index);
                 div.innerHTML = `
-                <img src="${e.target.result}" class="img-preview">
+                <img src="${e.target.result}" class="img-preview" id="new-image-${index}">
                 <span class="close-button" onclick="removeNewImage(${index})">&times;</span>
             `;
                 imagesContainer.appendChild(div);
@@ -279,8 +283,20 @@ $conn->close();
 
         imagesInput.files = dt.files;
 
-        var imageWrappers = document.getElementsByClassName('image-wrapper');
-        imageWrappers[index].remove();
+        var imageWrapper = document.getElementById('new-image-wrapper-' + index);
+        if (imageWrapper) {
+            imageWrapper.remove();
+        }
+
+        // Обновить id всех оберток и кнопок
+        var imageWrappers = document.querySelectorAll('.image-wrapper');
+        imageWrappers.forEach(function(wrapper, idx) {
+            wrapper.id = 'new-image-wrapper-' + idx;
+            var img = wrapper.querySelector('.img-preview');
+            img.id = 'new-image-' + idx;
+            var closeButton = wrapper.querySelector('.close-button');
+            closeButton.setAttribute('onclick', 'removeNewImage(' + idx + ')');
+        });
     }
 
 </script>
