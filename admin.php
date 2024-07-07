@@ -39,20 +39,20 @@ if (!isset($_SESSION['username'])) {
     <main class="main" style="margin-top: 65px">
         <section id="auto" class="search-car">
             <div class="search-car__container">
-                <div class="search-car__item">Все</div>
-                <div class="search-car__item">Компактные</div>
-                <div class="search-car__item">Средний класс</div>
-                <div class="search-car__item">Кроссоверы</div>
-                <div class="search-car__item">Люкс</div>
-                <div class="search-car__item">Кабриолеты</div>
-                <div class="search-car__item">Минивэны</div>
-                <div class="search-car__item">Мото</div>
+                <div class="search-car__item">Все <?= $count ?></div>
+                <div class="search-car__item">Компактные <?= isset($categoryCounts['Компактные']) ? $categoryCounts['Компактные'] : 0 ?></div>
+                <div class="search-car__item">Средний класс <?= isset($categoryCounts['Средний класс']) ? $categoryCounts['Средний класс'] : 0 ?></div>
+                <div class="search-car__item">Кроссоверы <?= isset($categoryCounts['Кроссоверы']) ? $categoryCounts['Кроссоверы'] : 0 ?></div>
+                <div class="search-car__item">Люкс <?= isset($categoryCounts['Люкс']) ? $categoryCounts['Люкс'] : 0 ?></div>
+                <div class="search-car__item">Кабриолеты <?= isset($categoryCounts['Кабриолеты']) ? $categoryCounts['Кабриолеты'] : 0 ?></div>
+                <div class="search-car__item">Минивэны <?= isset($categoryCounts['Минивэны']) ? $categoryCounts['Минивэны'] : 0 ?></div>
+                <div class="search-car__item">Мото <?= isset($categoryCounts['Мото']) ? $categoryCounts['Мото'] : 0 ?></div>
             </div>
         </section>
         <section class="auto-grid">
             <div class="auto-grid__container">
                 <?php foreach ($data as $car): ?>
-                    <div id="modal-trigger-<?= htmlspecialchars($car['id']) ?>" class="auto-grid__item">
+                    <div id="modal-trigger-<?= htmlspecialchars($car['id']) ?>" class="auto-grid__item admin-preview-img">
                         <div class="auto-grid__buttons">
                             <button class="auto-grid__button deleteBtn" data-car-id="<?= htmlspecialchars($car['id']) ?>">
                                 <img src="img/icons/trash-red.svg" alt="Delete">

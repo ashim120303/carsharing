@@ -7,6 +7,7 @@
     <list default="true" id="959c78f1-1c38-4ad7-b54d-5f916194ed2a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output.php" beforeDir="false" afterPath="$PROJECT_DIR$/output.php" afterDir="false" />
     </list>
@@ -38,6 +39,7 @@
     &quot;PHP Built-in Web Server.Unnamed.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/z/Desktop/test-php&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -80,7 +82,9 @@
       <workItem from="1720012087860" duration="3699000" />
       <workItem from="1720026483109" duration="34000" />
       <workItem from="1720071757566" duration="21217000" />
-      <workItem from="1720253610400" duration="5901000" />
+      <workItem from="1720253610400" duration="6166000" />
+      <workItem from="1720330741570" duration="3000" />
+      <workItem from="1720330793182" duration="1976000" />
     </task>
     <servers />
   </component>

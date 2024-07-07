@@ -1,13 +1,5 @@
 <?php
 include 'output.php';
-
-// Подсчитываем количество записей и среднее значение price
-$count = count($data); // количество записей
-$averagePrice = 0;
-if ($count > 0) {
-    $totalPrice = array_sum(array_column($data, 'price'));
-    $averagePrice = $totalPrice / $count;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +45,7 @@ if ($count > 0) {
         <section class="hero">
           <div class="hero__content">
             <div class="hero__container">
-              
+
               <h1 class="hero__main-title">Аренда авто в Турции</h1>
                 <p class="hero__text">
                     Всего <?= $count ?> автомобиля со средним чеком <?= number_format($averagePrice, 2) ?>$ в сутки
@@ -157,14 +149,9 @@ if ($count > 0) {
                   <?php endforeach; ?>
               </div>
           </section>
-          <section class="show">
-          <div class="show__container">
-            <div class="show__text">
-              Показано 24 из 362 автомобиля
-            </div>
-            <div class="show__scale"></div>
-            <button class="show__button">Показать ещё</button>
-            <a href="#" class="show__return">Вернуться наверх</a>
+          <section class="pagination">
+          <div class="pagination__container">
+
           </div>
         </section>
       </main>

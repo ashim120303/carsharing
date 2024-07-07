@@ -377,6 +377,7 @@ body {font-family: sans-serif;font-size: 14px;color: #303030;}
 .auto-grid__item:hover img {
   transform: scale(1.1);
 }
+
 .auto-grid__title {
   font-weight: 600;
   font-size: 19px;
@@ -640,6 +641,7 @@ body {font-family: sans-serif;font-size: 14px;color: #303030;}
   position: absolute;
   top: 10px;
   right: 10px;
+  z-index: 2;
 }
 .auto-grid__button img{
   height: 30px;

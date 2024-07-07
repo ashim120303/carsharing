@@ -48,6 +48,13 @@ if ($result->num_rows > 0) {
         $categoryCounts[$row['category']] = $row['category_count'];
     }
 }
+// Подсчитываем количество записей и среднее значение price
+$count = count($data); // количество записей
+$averagePrice = 0;
+if ($count > 0) {
+    $totalPrice = array_sum(array_column($data, 'price'));
+    $averagePrice = $totalPrice / $count;
+}
 
 $conn->close();
 return $data;
