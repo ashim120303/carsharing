@@ -1,0 +1,32 @@
+CREATE DATABASE carcharing;
+
+CREATE TABLE user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE car (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    model VARCHAR(50) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    engine_volume DECIMAL(4, 2) NOT NULL,
+    year_of_manufacture YEAR NOT NULL,
+    number_of_seats INT NOT NULL,
+    drive ENUM('Передний', 'Задний', 'Полный') NOT NULL,
+    engine_power INT NOT NULL,
+    fuel_type ENUM('Дизель', 'Бензин', 'Электро', 'Гибрид') NOT NULL,
+    steering_side ENUM('Лево', 'Право') NOT NULL,
+    fuel_consumption DECIMAL(4, 2) NOT NULL,
+    transmission ENUM('Механика', 'Автомат', 'Робот') NOT NULL,
+    category ENUM('Компактные', 'Средний класс', 'Кроссоверы', 'Люкс', 'Кабриолеты', 'Минивэны', 'Мото') NOT NULL,
+    preview_image VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE car_images (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    car_id INT NOT NULL,
+    image_path VARCHAR(255) NOT NULL,
+    FOREIGN KEY (car_id) REFERENCES car(id)
+);
+
