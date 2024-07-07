@@ -48,7 +48,7 @@ include 'output.php';
 
               <h1 class="hero__main-title">Аренда авто в Турции</h1>
                 <p class="hero__text">
-                    Всего <?= $count ?> автомобиля со средним чеком <?= number_format($averagePrice, 2) ?>$ в сутки
+                    Всего <?= $totalCars ?> автомобиля со средним чеком <?= number_format($averagePrice) ?>$ в сутки
                 </p>
             </div>
             <a href="#auto" class="hero__anchor">
@@ -80,7 +80,7 @@ include 'output.php';
               <div class="search-car__container">
                   <div class="search-car__item">
                       <a href="?category=all">
-                          Все <?= $count ?>
+                          Все <?= $totalCars ?>
                       </a>
                   </div>
                   <div class="search-car__item">

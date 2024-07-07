@@ -61,11 +61,23 @@ if ($result->num_rows > 0) {
     }
 }
 // Подсчитываем количество записей и среднее значение price
-$count = count($data); // количество записей
-$averagePrice = 0;
-if ($count > 0) {
-    $totalPrice = array_sum(array_column($data, 'price'));
-    $averagePrice = $totalPrice / $count;
+$sql = "SELECT AVG(price) AS average_price FROM car";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $averagePrice = $row['average_price'];
+} else {
+    $averagePrice = 0;
+}
+$sql = "SELECT COUNT(*) AS total_cars FROM car";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $totalCars = $row['total_cars'];
+} else {
+    $totalCars = 0;
 }
 
 $conn->close();

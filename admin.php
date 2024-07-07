@@ -42,7 +42,7 @@ if (!isset($_SESSION['username'])) {
                 <div class="search-car__item">
                     <?php ?>
                     <a href="?category=all">
-                        Все <?= $totalCount ?>
+                        Все <?= $totalCars ?>
                     </a>
                 </div>
                 <div class="search-car__item">
