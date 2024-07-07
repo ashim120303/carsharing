@@ -62,4 +62,5 @@ document.querySelector('.hero__anchor').addEventListener('click', function(event
 });
 
 
-// Delete modal
+// Ajacs
+

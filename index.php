@@ -76,18 +76,50 @@ include 'output.php';
             </div>
           </div>
         </section>
-        <section id="auto" class="search-car">
-          <div class="search-car__container">
-            <div class="search-car__item">Все <?= $count ?></div>
-            <div class="search-car__item">Компактные <?= isset($categoryCounts['Компактные']) ? $categoryCounts['Компактные'] : 0 ?></div>
-            <div class="search-car__item">Средний класс <?= isset($categoryCounts['Средний класс']) ? $categoryCounts['Средний класс'] : 0 ?></div>
-            <div class="search-car__item">Кроссоверы <?= isset($categoryCounts['Кроссоверы']) ? $categoryCounts['Кроссоверы'] : 0 ?></div>
-            <div class="search-car__item">Люкс <?= isset($categoryCounts['Люкс']) ? $categoryCounts['Люкс'] : 0 ?></div>
-            <div class="search-car__item">Кабриолеты <?= isset($categoryCounts['Кабриолеты']) ? $categoryCounts['Кабриолеты'] : 0 ?></div>
-            <div class="search-car__item">Минивэны <?= isset($categoryCounts['Минивэны']) ? $categoryCounts['Минивэны'] : 0 ?></div>
-            <div class="search-car__item">Мото <?= isset($categoryCounts['Мото']) ? $categoryCounts['Мото'] : 0 ?></div>
-          </div>
-        </section>
+          <section id="auto" class="search-car">
+              <div class="search-car__container">
+                  <div class="search-car__item">
+                      <a href="?category=all">
+                          Все <?= $count ?>
+                      </a>
+                  </div>
+                  <div class="search-car__item">
+                      <a href="?category=Компактные">
+                          Компактные <?= isset($categoryCounts['Компактные']) ? $categoryCounts['Компактные'] : 0 ?>
+                      </a>
+                  </div>
+                  <div class="search-car__item">
+                      <a href="?category=Средний класс">
+                          Средний класс <?= isset($categoryCounts['Средний класс']) ? $categoryCounts['Средний класс'] : 0 ?>
+                      </a>
+                  </div>
+                  <div class="search-car__item">
+                      <a href="?category=Кроссоверы">
+                          Кроссоверы <?= isset($categoryCounts['Кроссоверы']) ? $categoryCounts['Кроссоверы'] : 0 ?>
+                      </a>
+                  </div>
+                  <div class="search-car__item">
+                      <a href="?category=Люкс">
+                          Люкс <?= isset($categoryCounts['Люкс']) ? $categoryCounts['Люкс'] : 0 ?>
+                      </a>
+                  </div>
+                  <div class="search-car__item">
+                      <a href="?category=Кабриолеты">
+                          Кабриолеты <?= isset($categoryCounts['Кабриолеты']) ? $categoryCounts['Кабриолеты'] : 0 ?>
+                      </a>
+                  </div>
+                  <div class="search-car__item">
+                      <a href="?category=Минивэны">
+                          Минивэны <?= isset($categoryCounts['Минивэны']) ? $categoryCounts['Минивэны'] : 0 ?>
+                      </a>
+                  </div>
+                  <div class="search-car__item">
+                      <a href="?category=Мото">
+                          Мото <?= isset($categoryCounts['Мото']) ? $categoryCounts['Мото'] : 0 ?>
+                      </a>
+                  </div>
+              </div>
+          </section>
           <?php foreach ($data as $car): ?>
               <div id="car-modal-<?= htmlspecialchars($car['id']) ?>" class="modal">
                   <div class="modal-content">

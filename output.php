@@ -1,12 +1,24 @@
 <?php
 include 'db.php';
 
-// SQL-запрос для извлечения данных из таблиц
-$sql = "SELECT car.id, car.model, car.price, car.engine_volume, car.year_of_manufacture, car.number_of_seats, car.drive, 
+$category = isset($_GET['category']) ? $_GET['category'] : 'all';
+
+// SQL-запрос для извлечения данных из таблицы
+if ($category === 'all') {
+    $sql = "SELECT car.id, car.model, car.price, car.engine_volume, car.year_of_manufacture, car.number_of_seats, car.drive, 
                    car.engine_power, car.fuel_type, car.steering_side, car.fuel_consumption, car.transmission, car.category, 
                    car.preview_image, car_images.image_path
             FROM car
             LEFT JOIN car_images ON car.id = car_images.car_id";
+} else {
+    $sql = "SELECT car.id, car.model, car.price, car.engine_volume, car.year_of_manufacture, car.number_of_seats, car.drive, 
+                   car.engine_power, car.fuel_type, car.steering_side, car.fuel_consumption, car.transmission, car.category, 
+                   car.preview_image, car_images.image_path
+            FROM car
+            LEFT JOIN car_images ON car.id = car_images.car_id
+            WHERE car.category = '$category'";
+}
+
 $result = $conn->query($sql);
 
 $data = [];
